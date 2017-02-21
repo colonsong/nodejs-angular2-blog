@@ -1,1 +1,2 @@
-./ServerApp/node_modules/*
+# Dependency directories
+node_modules/
