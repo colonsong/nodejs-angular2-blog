@@ -1,0 +1,31 @@
+{
+  "name": "serverapp",
+  "version": "1.0.0",
+  "description": "aaa",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/server.js",
+    "test": "./node_modules/mocha/bin/mocha",
+    "test-detail": "./node_modules/mocha/bin/mocha --reporter list",
+    "stop": "pkill -lf server.js"
+  },
+  "author": "kerkerj",
+  "license": "ISC",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/colonsong/nodejs-angular2-blog.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "debug": "^2.6.1",
+    "expect.js": "^0.3.1",
+    "express": "^4.14.1",
+    "log4js": "^1.1.0",
+    "mocha": "^3.2.0",
+    "mocha-mongoose": "^1.2.0",
+    "mongodb": "^2.2.24",
+    "mongoose": "^4.8.4",
+    "superagent": "^3.4.4",
+    "validator": "^6.2.1"
+  }
+}
