@@ -8,5 +8,14 @@ router.get('/', function(req, res) {
 
 });
 
+router.get('/id/:article_id', function(req, res) {
+    res.status(200).json( 
+        {
+            success: "GET Articles",
+            article_id : req.params.article_id
+        } );
+
+});
+
 module.exports = router;
 
