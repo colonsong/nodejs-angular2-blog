@@ -21,12 +21,14 @@ con.connect(function(err) {
 
 
 // Get records from a city
-exports.getArticles = function(articles, rows) {
+exports.getArticles = function(callback) {
     var sql = "SELECT * FROM `blogContents` order by `blogContents_id` desc limit 1 ";
-    con.query(sql, function(err, rows){
+    con.query(sql, function(err, rows, fields){
+        con.end();
         if(err) throw err;
 
         console.log('Data received from Db:\n');
         console.log(rows);
+        callback(err, rows);
     });
 };

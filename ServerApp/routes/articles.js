@@ -6,20 +6,10 @@ var db = require('../db/mysql');
 
 
 router.get('/', function(req, res) {
-
-    db.getArticles(function (err, con) {
-        if(err) { /* handle your error here */ }
-        var articles = 'select * from blogContents limit 10';
-        console.log("con: " + con); //displays undefined
-        con.query(userQuery, function(err, articles){
-            console.log(articles);
-        con.release();
-        });
+    var resJSON = {};
+    db.getArticles(function(err, data){
+        res.status(200).json( {success: data} );
     });
-    
-
-    res.status(200).json( {success: "GET Articles"} );
-
 });
 
 router.get('/id/:article_id', function(req, res) {
