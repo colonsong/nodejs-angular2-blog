@@ -22,7 +22,7 @@ con.connect(function(err) {
 
 // Get records from a city
 exports.getArticles = function(articles, rows) {
-    var sql = "SELECT * FROM blogContents  limit 10 ";
+    var sql = "SELECT * FROM `blogContents` order by `blogContents_id` desc limit 1 ";
     con.query(sql, function(err, rows){
         if(err) throw err;
 
