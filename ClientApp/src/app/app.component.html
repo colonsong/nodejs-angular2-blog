@@ -35,18 +35,18 @@
 <div id="container">
     <div id="content">
         <div class="post">
-            <div class="article">
+            <div class="article" *ngFor="let article of articles">
                 <div class="ar_title">
-                    <a href="https://waterdrop.tw/blog/read_article/923">☼ 儲存模式 & 正規化</a>
+                    <a href="https://waterdrop.tw/blog/read_article/923">☼ {{article.title}}</a>
                     <span class="ar_classify">
-                            SQL 
+                            {{article.classify}}
                         </span>
                 </div>
                 <div class="ar_datetime">
                     <span>
-                            此文章於星期一, 五月30日, 2016年, 13時17分發表</span>
+                            {{articles.datetime}}</span>
                 </div>
-                <div class="ar_contents"></div>
+                <div class="ar_contents" [innerHTML]="article.contents"></div>
                 <p></p>
                 <div class="clearfix">
                     <div class="ar_link pull-right">
