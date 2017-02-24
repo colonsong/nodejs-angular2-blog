@@ -1,3 +1,4 @@
+import { Input } from '@angular/core/src/metadata';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
+  
+  @Input() article: any;
+  
+
 
   constructor() { }
 
