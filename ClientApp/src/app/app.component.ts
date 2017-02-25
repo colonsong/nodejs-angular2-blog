@@ -8,15 +8,8 @@ import { ArticleService } from './service/article.service';
   selector: 'my-app',
   templateUrl: 'app.component.html',
 })
-export class AppComponent implements OnInit{ 
+export class AppComponent{ 
   name = 'Angular';
   blogNmae = '滴一滴水 With Angular2';
-  articles:any[];
-  constructor(private articleService: ArticleService) {
-    
-  }
-
-  ngOnInit(): void {
-    this.articleService.getArticles().then(articles => this.articles = articles);
-  }
+  
  }

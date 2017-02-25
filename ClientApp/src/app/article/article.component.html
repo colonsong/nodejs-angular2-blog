@@ -1,13 +1,12 @@
 <div class="article">
   <div class="ar_title">
-    <a href="https://waterdrop.tw/blog/read_article/923">☼ {{article.title}}</a>
+    <a [routerLink]="['/article-detail', article.id]">☼ {{article.title}}</a>
     <span class="ar_classify">
         {{article.classify}}
      </span>
   </div>
   <div class="ar_datetime">
-    <span>
-                            {{article.datetime}}</span>
+    <span>{{article.datetime}}</span>
   </div>
   <div class="ar_contents" [innerHTML]="article.contents"></div>
   <p></p>
@@ -18,4 +17,3 @@
     </div>
   </div>
 </div>
-<p>
