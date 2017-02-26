@@ -1,9 +1,12 @@
 <div id="blog_search">
-            <h2>關鍵字搜尋</h2>
-            <ul>
-                <form name="search_form" id="search_form" method="POST" action="https://waterdrop.tw/blog/search/">
-                    <input type="text" class="form-control input-sm" name="q">
-                    <button type="submit" name="sf" class="btn btn-default btn-xs">搜尋</button>
-                </form>
-            </ul>
-        </div>
+  <h2>搜尋文章</h2>
+  <ul>
+    <form name="search_form" id="search_form" method="POST" action="https://waterdrop.tw/blog/search/">
+      <input type="text" class="form-control input-sm" name="q" (keyup)="search(article.title)" />
+      <div *ngFor="let article of articles | async"
+        (click)="gotoArticleDetail(article)" class="search-result" >
+        {{article.title}}
+      </div>
+    </form>
+  </ul>
+</div>
