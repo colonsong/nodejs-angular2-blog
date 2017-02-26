@@ -1,12 +1,10 @@
 <div id="blog_search">
   <h2>搜尋文章</h2>
-  <ul>
-    <form name="search_form" id="search_form" method="POST" action="https://waterdrop.tw/blog/search/">
-      <input type="text" class="form-control input-sm" name="q" (keyup)="search(article.title)" />
+  <input #searchBox id="search-box"  (keyup)="search(searchBox.value)" />
+  <div>
       <div *ngFor="let article of articles | async"
-        (click)="gotoArticleDetail(article)" class="search-result" >
+        (click)="gotoArticleDetail(article)" class="search-result">
         {{article.title}}
       </div>
-    </form>
-  </ul>
+  </div>
 </div>

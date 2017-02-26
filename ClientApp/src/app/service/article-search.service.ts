@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Article }           from './article.model';
 
 @Injectable()
-export class HeroSearchService {
+export class ArticleSearchService {
 
   private articleUrl = 'http://localhost:3000/api/searchArticles/';
 
@@ -13,7 +13,7 @@ export class HeroSearchService {
 
   search(term: string): Observable<Article[]> {
     return this.http
-               .get(this.articleUrl + `?term=${term}`)
-               .map((r: Response) => r.json().data as Article[]);
+               .get(this.articleUrl + `${term}`)
+               .map((r: Response) => r.json().success as Article[]);
   }
 }
