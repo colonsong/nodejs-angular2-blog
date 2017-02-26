@@ -16,29 +16,12 @@
     </div>
 </div>
 
-<header>
-    <div id="nav_container">
-        <div id="search_bar">
-            <span class="blog_title">{{blogNmae}}</span>
-        </div>
-        <div id="menu_bar">
-            <nav>
-                <a class="" href="./blog/">部落格</a>
-                <a class="" href="./album/">相簿</a>
-                <a class="" href="./gp/">美食</a>
-                <a class="" href="./blog/about_me/">關於</a>
-            </nav>
-        </div>
-    </div>
-</header>
-
+<app-header></app-header>
 <div id="container">
     <!-- #content start -->
     <router-outlet></router-outlet>
     <!-- end #content -->
     <aside>
-
-
         <div id="css_change">
             <h2>你喜歡白還黑?</h2>
             <ul>
@@ -46,44 +29,10 @@
                 <li rel="style1" id="style1" class="styleswitch"></li>
             </ul>
         </div>
-        <div id="updates" class="orangebox">
-            <h2>最新文章發表</h2>
-            <ul>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/932 ">
-                        docker kitematic wordpress                    </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/931 ">
-                        billbill 批次                    </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/930 ">
-                        gulp livereload                    </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/929 ">
-                        HTTPS                    </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/928 ">
-                        perl -d                    </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/926 ">
-                        phpstorm+laravel本機環境 on mac                    </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/924 ">
-                        Docker Mysql Cluster                     </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/923 ">
-                        儲存模式 & 正規化                    </a></li>
-            </ul>
-        </div>
-        <div id="blog_search">
-            <h2>關鍵字搜尋</h2>
-            <ul>
-                <form name="search_form" id="search_form" method="POST" action="https://waterdrop.tw/blog/search/">
-                    <input type="text" class="form-control input-sm" name="q">
-                    <button type="submit" name="sf" class="btn btn-default btn-xs">搜尋</button>
-                </form>
-            </ul>
-        </div>
-
-
+        <app-recent-article></app-recent-article>
+        <app-search-article></app-search-article>
     </aside>
-
     <!-- end #sidebar -->
     <div style="clear: both;">&nbsp;</div>
 </div>
-<footer>
-    <p id="legal">Copyright &copy; 2010 . All Rights Reserved. Designed by <a href="https://waterdrop.tw/blog/about_me/">滴一滴水</a>. 網頁執行時間0.2004秒
-    </p>
-</footer>
+<app-footer></app-footer>

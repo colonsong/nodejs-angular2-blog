@@ -12,8 +12,8 @@
   <p></p>
   <div class="clearfix">
     <div class="ar_link pull-right">
-      <a href="https://waterdrop.tw/blog/read_article/923">閱讀全文</a> ↔
-      <a href="https://waterdrop.tw/blog/read_article/923" target="_blank">閱讀全文(開新分頁)</a>
+      <a [routerLink]="['/article-detail', article.id]">閱讀全文</a> ↔
+      <a [routerLink]="['/article-detail', article.id]" target="_blank">閱讀全文(開新分頁)</a>
     </div>
   </div>
 </div>

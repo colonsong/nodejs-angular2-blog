@@ -9,6 +9,10 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
 import { AppRoutingModule }     from './app-routing.module';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { BlogIndexComponent } from './blog-index/blog-index.component';
+import { HeaderComponent } from './header/header.component';
+import { RecentArticleComponent } from './recent-article/recent-article.component';
+import { SearchArticleComponent } from './search-article/search-article.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports:      [ 
@@ -16,7 +20,7 @@ import { BlogIndexComponent } from './blog-index/blog-index.component';
     HttpModule,
     AppRoutingModule
   ],
-  declarations: [ AppComponent, ArticleComponent, ArticleDetailComponent, ArticleListComponent, BlogIndexComponent ],
+  declarations: [ AppComponent, ArticleComponent, ArticleDetailComponent, ArticleListComponent, BlogIndexComponent, HeaderComponent, RecentArticleComponent, SearchArticleComponent, FooterComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ArticleService]
 })
