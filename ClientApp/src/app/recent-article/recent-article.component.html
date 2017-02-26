@@ -1,21 +1,9 @@
 <div id="updates" class="orangebox">
             <h2>最新文章發表</h2>
             <ul>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/932 ">
-                        docker kitematic wordpress                    </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/931 ">
-                        billbill 批次                    </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/930 ">
-                        gulp livereload                    </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/929 ">
-                        HTTPS                    </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/928 ">
-                        perl -d                    </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/926 ">
-                        phpstorm+laravel本機環境 on mac                    </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/924 ">
-                        Docker Mysql Cluster                     </a></li>
-                <li class="si_title"><a href="https://waterdrop.tw/blog/read_article/923 ">
-                        儲存模式 & 正規化                    </a></li>
+                <li class="si_title" *ngFor="let article of articles">
+                  <a [routerLink]="['/article-detail', article.id]">{{article.title}}</a>
+                </li>
+              
             </ul>
         </div>
