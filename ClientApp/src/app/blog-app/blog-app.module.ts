@@ -1,8 +1,8 @@
+import { NgModule }      from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+
 import { BlogAppComponent } from './blog-app.component';
 
-import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
-import { NgModule }      from '@angular/core';
 import { CommonModule }  from '@angular/common';
 
 import { HttpModule } from '@angular/http';
