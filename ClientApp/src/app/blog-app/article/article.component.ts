@@ -1,6 +1,6 @@
 import { Input } from '@angular/core/src/metadata';
 import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../service/article.service';
+import { ArticleService } from '../../service/article.service';
 
 @Component({
   moduleId: module.id,

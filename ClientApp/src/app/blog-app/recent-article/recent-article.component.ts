@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../service/article.service';
+import { ArticleService } from '../../service/article.service';
 
 @Component({
   selector: 'app-recent-article',

@@ -6,10 +6,9 @@ import { ArticleService } from './service/article.service';
 @Component({
   moduleId: module.id,
   selector: 'my-app',
-  templateUrl: 'app.component.html',
+  template: '<router-outlet></router-outlet>'
 })
 export class AppComponent{ 
-  name = 'Angular';
-  blogNmae = '滴一滴水 With Angular2';
+
   
  }

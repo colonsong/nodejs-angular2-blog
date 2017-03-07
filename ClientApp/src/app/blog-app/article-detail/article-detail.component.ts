@@ -1,7 +1,7 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
 import { ArticleComponent } from '../article/article.component'; 
-import { ArticleService } from '../service/article.service';
+import { ArticleService } from '../../service/article.service';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({

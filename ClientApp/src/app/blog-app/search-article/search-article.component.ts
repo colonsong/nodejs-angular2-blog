@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleSearchService } from '../service/article-search.service';
+import { ArticleSearchService } from '../../service/article-search.service';
 import { Observable  }        from 'rxjs/Observable';
-import { Article }           from '../service/article.model';
+import { Article }           from '../../service/article.model';
 import { Router }            from '@angular/router';
 import { Subject }           from 'rxjs/Subject';
 

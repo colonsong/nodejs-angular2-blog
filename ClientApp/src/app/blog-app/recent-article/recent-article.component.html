@@ -2,7 +2,7 @@
             <h2>最新文章發表</h2>
             <ul>
                 <li class="si_title" *ngFor="let article of articles">
-                  <a [routerLink]="['/article-detail', article.id]">{{article.title}}</a>
+                  <a [routerLink]="['./article-detail', article.id]">{{article.title}}</a>
                 </li>
               
             </ul>
