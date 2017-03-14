@@ -34,7 +34,7 @@ export class SearchArticleComponent implements OnInit {
   }
 
   gotoArticleDetail(article: Article): void {
-      let link = ['/article-detail', article.id];
+      let link = ['/blog/article-detail', article.id];
       this.router.navigate(link);
   }
 
