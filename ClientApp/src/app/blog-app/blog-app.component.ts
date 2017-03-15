@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Renderer } from '@angular/core';
 import { Http } from '@angular/http';
 import { ArticleService } from '../service/article.service';
-import { ElementRef, Renderer} from '@angular/core';
 
 
 @Component({
@@ -12,9 +11,8 @@ import { ElementRef, Renderer} from '@angular/core';
 export class BlogAppComponent implements OnInit {
   name = 'Angular';
   blogNmae = '滴一滴水 With Angular2';
-  
+
   constructor(
-    private el: ElementRef,
     private renderer: Renderer) {
     }
 
