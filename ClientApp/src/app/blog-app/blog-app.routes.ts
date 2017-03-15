@@ -9,7 +9,8 @@ export const ROUTER_CONFIG: Routes = [
     children: [
       
        { path: '', component: BlogIndexComponent},
-       { path: 'article-detail/:id', component: ArticleDetailComponent}
+       { path: 'article-detail/:id', component: ArticleDetailComponent},
+       { path: 'category/:name', component: BlogIndexComponent}
     ]
   }
 ];

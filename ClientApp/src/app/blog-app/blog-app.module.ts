@@ -1,3 +1,4 @@
+import { CategoryService } from './../service/category.service';
 import { NgModule }      from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
@@ -37,7 +38,8 @@ import { CategorysComponent } from './categorys/categorys.component';
     SearchArticleComponent, 
     FooterComponent, CategorysComponent, 
   ],
-  providers: [ArticleService],
+  providers: [ArticleService,
+  CategoryService],
 })
 
 export class BlogAppModule {}

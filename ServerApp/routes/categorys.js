@@ -13,5 +13,12 @@ router.get('/', function(req, res) {
 
 });
 
+router.get('/articles/:term', function(req, res) {
+    db.getArticlesByClassify(req.params.term, function(err, data){
+        res.status(200).json( {success: data} );
+    });
+
+});
+
 module.exports = router;
 
