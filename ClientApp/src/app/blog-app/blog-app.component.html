@@ -43,8 +43,8 @@
         <div id="css_change">
             <h2>你喜歡白還黑?</h2>
             <ul>
-                <li rel="style0" id="style0" class="styleswitch"></li>
-                <li rel="style1" id="style1" class="styleswitch"></li>
+                <li rel="style0" id="style0" class="styleswitch" (click)="styleswitch($event)"></li>
+                <li rel="style1" id="style1" class="styleswitch" (click)="styleswitch($event)"></li>
             </ul>
         </div>
         <app-recent-article></app-recent-article>

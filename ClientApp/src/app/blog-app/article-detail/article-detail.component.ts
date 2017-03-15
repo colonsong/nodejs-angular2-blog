@@ -5,7 +5,6 @@ import { ArticleService } from '../../service/article.service';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-article-detail',
   templateUrl: './article-detail.component.html',
   styleUrls: ['./article-detail.component.css']
