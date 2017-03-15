@@ -6,6 +6,7 @@ var app = express();
 
 var index = require('./routes/index');
 var articles = require('./routes/articles');
+var categorys = require('./routes/categorys');
 var searchArticles = require('./routes/searchArticles');
 
 // 加在 router 前面，切記!!
@@ -36,6 +37,7 @@ app.use(function (req, res, next) {
 // Set routers
 app.use('/', index);
 app.use('/api/articles', articles);
+app.use('/api/categorys', categorys);
 app.use('/api/searchArticles', searchArticles);
 
 module.exports = app;

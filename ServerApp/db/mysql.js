@@ -49,3 +49,15 @@ exports.searchArticles = function(term, callback) {
         callback(err, rows);
     });
 };
+
+exports.getCategorys = function(term, callback) {
+    var sql = "SELECT `classify` , COUNT(  `classify` ) c FROM  `blogContents` where `hide` = 0 GROUP BY  `classify` ORDER BY  `c` DESC ";
+    con.query(sql, function(err, rows, fields){
+        if(err) { throw err;}
+        
+        console.log('Data received from Db:\n');
+        console.log(rows);
+        callback(err, rows);
+    });
+};
+
