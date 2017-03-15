@@ -17,6 +17,7 @@ import { SearchArticleComponent } from './search-article/search-article.componen
 import { FooterComponent } from './footer/footer.component';
 
 import { ROUTER_CONFIG } from './blog-app.routes';
+import { CategorysComponent } from './categorys/categorys.component';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { ROUTER_CONFIG } from './blog-app.routes';
     HeaderComponent, 
     RecentArticleComponent,
     SearchArticleComponent, 
-    FooterComponent, 
+    FooterComponent, CategorysComponent, 
   ],
   providers: [ArticleService],
 })

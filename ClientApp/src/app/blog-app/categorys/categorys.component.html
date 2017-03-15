@@ -1,0 +1,9 @@
+<div id="classify">
+  <h2>文章分類</h2>
+  <ul>
+    <li class="si_categories" *ngFor="let category of categorys">
+      <a [routerLink]="['./category/', category.classify]">{{category.classify}}</a>
+      <span class="badge">{{category.c}}</span>
+    </li> 
+  </ul>
+</div>
