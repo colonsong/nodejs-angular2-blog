@@ -1,5 +1,5 @@
 import { CategoryService } from './../../service/category.service';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../../service/article.service';
 
@@ -23,7 +23,12 @@ export class ArticleListComponent implements OnInit {
     var isCategoryPage = (this.activatedRoute.snapshot.url[0] && this.activatedRoute.snapshot.url[0].path === 'category') ? true : false;
     if (isCategoryPage) {
       console.log('category page');
-      this.categoryService.getCategoryArticles(this.activatedRoute.snapshot.url[1].path).then(articles => this.articles = articles);
+      
+     this.activatedRoute.params
+       .switchMap((params: Params) => this.categoryService.getCategoryArticles(params['name']))
+       .subscribe(articles => this.articles = articles);
+
+      
     } else {
       console.log('article page');
       this.articleService.getArticles().then(articles => this.articles = articles);
