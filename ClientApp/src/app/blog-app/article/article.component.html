@@ -6,7 +6,7 @@
      </span>
   </div>
   <div class="ar_datetime">
-    <span>{{article.datetime}}</span>
+    <span>{{article.datetime | date:'y-M-d H:j' }}</span>
   </div>
   <div class="ar_contents" [innerHTML]="article.contents"></div>
   <p></p>
