@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { Article } from './article.model';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { environment } from './../../environments/environment.prod';
+
 
 @Injectable()
 export class ArticleService {
 
     constructor(private http:Http) {};
-    private articleUrl = 'http://localhost:3000/api/articles/';
+    private articleUrl = 'http://'+ environment.APIURL +':3000/api/articles/';
 
     getArticles() : Promise<Article[]>{
         return this.http.get(this.articleUrl)

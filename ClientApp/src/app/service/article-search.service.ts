@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
@@ -7,7 +8,7 @@ import { Article }           from './article.model';
 @Injectable()
 export class ArticleSearchService {
 
-  private articleUrl = 'http://localhost:3000/api/searchArticles/';
+  private articleUrl = 'http://'+ environment.APIURL +':3000/api/searchArticles/';
 
   constructor(private http: Http) {}
 
