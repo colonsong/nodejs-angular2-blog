@@ -17,8 +17,7 @@ exports.getArticles = function(callback) {
     var sql = "SELECT title,blogContents_id id, classify, datetime, contents FROM `blogContents` order by `blogContents_id` desc limit 5 ";
     
     con.query(sql, function(err, rows, fields){
-        if(err) { throw err;}
-        
+        if(err) { console.log(err); }
         console.log('Data received from Db:\n');
         console.log(rows);
         callback(err, rows);
@@ -30,7 +29,7 @@ exports.getArticleById = function(id, callback) {
     var sql = "SELECT title,blogContents_id id, classify, datetime, contents FROM `blogContents` where blogContents_id = ? ";
     
     con.query(sql, [id], function(err, rows, fields){
-        if(err) { throw err;}
+        if(err) { console.log(err); }
         
         console.log('Data received from Db:\n');
         console.log(rows);
@@ -43,7 +42,7 @@ exports.getArticleById = function(id, callback) {
 exports.searchArticles = function(term, callback) {
     var sql = "SELECT title,blogContents_id id, classify, datetime, contents FROM `blogContents` where title like ? OR contents like ? limit 20";
     con.query(sql, ['%' + term + '%','%' + term + '%'], function(err, rows, fields){
-        if(err) { throw err;}
+        if(err) { console.log(err); }
         console.log('Data received from Db:\n');
         console.log(rows);
         callback(err, rows);
@@ -53,7 +52,7 @@ exports.searchArticles = function(term, callback) {
 exports.getCategorys = function(term, callback) {
     var sql = "SELECT `classify` , COUNT(  `classify` ) c FROM  `blogContents` where `hide` = 0 GROUP BY  `classify` ORDER BY  `c` DESC ";
     con.query(sql, function(err, rows, fields){
-        if(err) { throw err;}
+        if(err) { console.log(err); }
         
         console.log('Data received from Db:\n');
         console.log(rows);
@@ -66,13 +65,12 @@ exports.getArticlesByClassify = function(classify, callback) {
     var sql = "SELECT *,DATE_FORMAT(update_time, '%W, %M, %d, %Y, %H:%i:%s') d " +  
     "FROM `blogContents` WHERE classify=? ORDER BY  `update_time` DESC limit 10";
     con.query(sql, [classify], function(err, rows, fields){
-        if(err) { throw err;}
+        if(err) { console.log(err); }
         console.log('Data received from Db:\n');
         console.log(rows);
         callback(err, rows);
     });
 };
-
 
 
 
