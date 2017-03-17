@@ -1,3 +1,4 @@
+import { ArticlePager } from './articlePager.model';
 import { Injectable } from '@angular/core';
 import { Article } from './article.model';
 import { Headers, Http } from '@angular/http';
@@ -11,10 +12,10 @@ export class ArticleService {
     constructor(private http:Http) {};
     private articleUrl = 'http://'+ environment.APIURL +':3000/api/articles/';
 
-    getArticles() : Promise<Article[]>{
-        return this.http.get(this.articleUrl)
+    getArticles(page:number) : Promise<ArticlePager>{
+        return this.http.get(this.articleUrl + page)
         .toPromise()
-        .then(value =>  value.json().success as Article[])
+        .then(value =>  value.json().success as ArticlePager)
         .catch(this.handleError);
     }
 

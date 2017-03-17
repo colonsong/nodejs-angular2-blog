@@ -1,1 +1,2 @@
-<app-article *ngFor="let article of articles" [article]="article"></app-article>
+<app-article *ngFor="let article of articles | paginate: { id: 'server',itemsPerPage: 10, currentPage: p,totalItems:total }" [article]="article"></app-article>
+<pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>

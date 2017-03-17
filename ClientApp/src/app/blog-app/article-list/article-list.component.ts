@@ -1,3 +1,4 @@
+import { ArticlePager } from './../../service/articlePager.model';
 import { CategoryService } from './../../service/category.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -9,56 +10,36 @@ import { ArticleService } from '../../service/article.service';
   styleUrls: ['./article-list.component.css']
 })
 export class ArticleListComponent implements OnInit {
+  articles: any;
+  total:number;
+  p: number = 1;
 
-  articles:any[];
   constructor(
     private articleService: ArticleService,
     private categoryService: CategoryService,
     private router: Router,
-    private activatedRoute:ActivatedRoute
-    ) {}
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-       console.log('ngOnInit');
     var isCategoryPage = (this.activatedRoute.snapshot.url[0] && this.activatedRoute.snapshot.url[0].path === 'category') ? true : false;
     if (isCategoryPage) {
       console.log('category page');
-      
-     this.activatedRoute.params
-       .switchMap((params: Params) => this.categoryService.getCategoryArticles(params['name']))
-       .subscribe(articles => this.articles = articles);
-
-      
+      this.activatedRoute.params
+        .switchMap((params: Params) => this.categoryService.getCategoryArticles(params['name']))
+        .subscribe(articles => this.articles = articles);
     } else {
       console.log('article page');
-      this.articleService.getArticles().then(articles => this.articles = articles);
+      this.getPage(1);
     }
   }
 
-  ngAfterViewInit():void {
-    console.log('ngAfterViewInit');
+  getPage(page: number) {
+    this.p = page;
+    this.articleService.getArticles(page).then(articles =>  {
+         this.articles = articles.data;
+         this.total = articles.count;
+        });
   }
-
-  ngDoCheck():void {
-    console.log('ngDoCheck');
-    
-  }
-
-  ngAfterContentInit	():void {
-    console.log('ngAfterContentInit	');
-  }
-  ngAfterViewChecked	():void {
-    console.log('ngAfterViewChecked	');
-  }
-
-    ngAfterContentChecked	():void {
-    console.log('ngAfterContentChecked	');
-  }
-
-
-  
-
-
-
 
 }

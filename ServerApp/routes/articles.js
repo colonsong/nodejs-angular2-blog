@@ -5,8 +5,8 @@ var router = express.Router();
 var db = require('../db/mysql');
 
 
-router.get('/', function(req, res) {
-    db.getArticles(function(err, data){
+router.get('/:page', function(req, res) {
+    db.getArticles(req.params.page, function(err, data){
         res.status(200).json( {success: data} );
     });
 });

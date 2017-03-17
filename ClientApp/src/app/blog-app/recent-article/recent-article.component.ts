@@ -1,3 +1,5 @@
+import { Article } from './../../service/article.model';
+
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../../service/article.service';
 
@@ -8,12 +10,12 @@ import { ArticleService } from '../../service/article.service';
 })
 export class RecentArticleComponent implements OnInit {
 
-articles:any[];
+articles:any;
   constructor(private articleService: ArticleService) {
     
   }
 
   ngOnInit(): void {
-    this.articleService.getArticles().then(articles => this.articles = articles);
+    this.articleService.getArticles(1).then(articles => this.articles = articles.data);
   }
 }
