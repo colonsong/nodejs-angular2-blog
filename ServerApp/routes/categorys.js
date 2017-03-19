@@ -13,8 +13,8 @@ router.get('/', function(req, res) {
 
 });
 
-router.get('/articles/:term', function(req, res) {
-    db.getArticlesByClassify(req.params.term, function(err, data){
+router.get('/articles/:term/:page', function(req, res) {
+    db.getArticlesByClassify(req.params.term, req.params.page, function(err, data){
         res.status(200).json( {success: data} );
     });
 

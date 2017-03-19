@@ -2,7 +2,7 @@
   <h2>文章分類</h2>
   <ul>
     <li class="si_categories" *ngFor="let category of categorys">
-      <a [routerLink]="['./category/', category.classify]" routerLinkActive="active">{{category.classify}}</a>
+      <a [routerLink]="['./category/', category.classify, 1]" routerLinkActive="active">{{category.classify}}</a>
       <span class="badge">{{category.c}}</span>
     </li> 
   </ul>

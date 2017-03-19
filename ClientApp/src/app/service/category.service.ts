@@ -4,6 +4,7 @@ import { Http, Response } from '@angular/http';
 import { Article } from './article.model';
 import { Observable } from 'rxjs';
 import { environment } from './../../environments/environment.prod';
+import { ArticlePager } from "app/service/articlePager.model";
 
 
 @Injectable()
@@ -20,10 +21,10 @@ export class CategoryService {
         .catch(this.handleError);
     }
 
-    getCategoryArticles(name) : Promise<Article[]>{
-        return this.http.get(this.articleUrl+'articles/'+name)
+    getCategoryArticles(name:string , page:number) : Promise<ArticlePager>{
+        return this.http.get(this.articleUrl+'articles/'+name+ '/' + page)
         .toPromise()
-        .then(value =>  value.json().success as Article[])
+        .then(value =>  value.json().success as ArticlePager)
         .catch(this.handleError);
     }
 

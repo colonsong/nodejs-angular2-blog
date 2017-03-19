@@ -66,6 +66,7 @@ exports.searchArticles = function(term, callback) {
 };
 
 exports.getCategorys = function(term, callback) {
+    
     var sql = "SELECT `classify` , COUNT(  `classify` ) c FROM  `blogContents` where `hide` = 0 GROUP BY  `classify` ORDER BY  `c` DESC ";
     con.query(sql, function(err, rows, fields){
         if(err) throw err;
@@ -77,15 +78,23 @@ exports.getCategorys = function(term, callback) {
 };
 
 // 文章目錄
-exports.getArticlesByClassify = function(classify, callback) {
-    
+exports.getArticlesByClassify = function(classify, page, callback) {
+
+    var perPage = 10;
+    var start = (page-1) * perPage;
+    const end = start + perPage;
+
     var sql = "SELECT *,blogContents_id id,DATE_FORMAT(update_time, '%W, %M, %d, %Y, %H:%i:%s') d " +  
-    "FROM `blogContents` WHERE classify=? ORDER BY  `update_time` DESC limit 10";
-    con.query(sql, [classify], function(err, rows, fields){
+    "FROM `blogContents` WHERE classify=? AND hide = 0 order by `blogContents_id` desc limit ?,?";
+    con.query(sql, [classify, start, end], function(err, rows, fields){
         if(err) throw err;
-        console.log('Data received from Db:\n');
-        console.log(rows);
-        callback(err, rows);
+        var sql = "SELECT count(*) c " +  
+    "FROM `blogContents` WHERE classify=? AND hide = 0  ";
+        con.query(sql,[classify], function(err, count, fields){
+            if(err) throw err;
+            console.log(count);
+            callback(err, {"count":count[0].c, "data":rows});
+        });
     });
 };
 

@@ -22,19 +22,29 @@ export class ArticleListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getPage(1);
+  }
+
+  getPage(page:number) {
     var isCategoryPage = (this.activatedRoute.snapshot.url[0] && this.activatedRoute.snapshot.url[0].path === 'category') ? true : false;
     if (isCategoryPage) {
-      console.log('category page');
-      this.activatedRoute.params
-        .switchMap((params: Params) => this.categoryService.getCategoryArticles(params['name']))
-        .subscribe(articles => this.articles = articles);
+      this.getCategoryArticlesPage(page);
     } else {
-      console.log('article page');
-      this.getPage(1);
+      this.getArticlesPage(page);
     }
   }
 
-  getPage(page: number) {
+  getCategoryArticlesPage(page: number) {
+    this.p = page;
+    this.activatedRoute.params
+        .switchMap((params: Params) => this.categoryService.getCategoryArticles(params['name'], this.p))
+        .subscribe(articles =>  {
+          this.articles = articles.data;
+          this.total = articles.count;
+        });
+  }
+
+  getArticlesPage(page: number) {
     this.p = page;
     this.articleService.getArticles(page).then(articles =>  {
          this.articles = articles.data;
