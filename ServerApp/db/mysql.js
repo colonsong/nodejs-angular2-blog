@@ -79,7 +79,7 @@ exports.getCategorys = function(term, callback) {
 // 文章目錄
 exports.getArticlesByClassify = function(classify, callback) {
     
-    var sql = "SELECT *,DATE_FORMAT(update_time, '%W, %M, %d, %Y, %H:%i:%s') d " +  
+    var sql = "SELECT *,blogContents_id id,DATE_FORMAT(update_time, '%W, %M, %d, %Y, %H:%i:%s') d " +  
     "FROM `blogContents` WHERE classify=? ORDER BY  `update_time` DESC limit 10";
     con.query(sql, [classify], function(err, rows, fields){
         if(err) throw err;
