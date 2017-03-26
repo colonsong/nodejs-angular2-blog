@@ -3,13 +3,15 @@ require('dotenv').config();
 // DataBase 
 var mysql = require("mysql");
 var db_option = {
+    connectionLimit : 10,
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME_BLOG,
-    debug: true,
 };
-var con = mysql.createConnection(db_option);
+
+var con = mysql.createPool(db_option);
+
 con.on('error', function(err){
 
     console.log(err);
