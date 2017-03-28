@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: '/blog', pathMatch: 'full' },
+  { path: 'admin', loadChildren: 'app/admin-app/admin-app.module#AdminAppModule' },
 ];
 
 @NgModule({
