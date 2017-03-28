@@ -7,8 +7,7 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
 export const ROUTER_CONFIG: Routes = [
   { path: 'blog', component: BlogAppComponent,
     children: [
-      
-       { path: '', component: BlogIndexComponent},
+       { path: '', redirectTo: 'blog', pathMatch:'full'},
        { path: 'article-detail/:id', component: ArticleDetailComponent},
        { path: 'category/:name/:page', component: BlogIndexComponent}
     ]
