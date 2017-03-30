@@ -6,7 +6,7 @@ import { ArticleService } from '../service/article.service';
 @Component({
   selector: 'app-blog-app',
   templateUrl: './blog-app.component.html',
-  styleUrls: ['./blog-app.component.css']
+  styleUrls: ['./blog-app.component.scss']
 })
 export class BlogAppComponent implements OnInit {
   name = 'Angular';

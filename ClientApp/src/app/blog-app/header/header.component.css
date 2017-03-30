@@ -1,0 +1,77 @@
+header {
+  width: 1000px;
+  height: 435px;
+  background:#000 url("https://farm6.staticflickr.com/5754/21341880550_85311be570_b.jpg") no-repeat center;
+  position: relative;
+  top: 20px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+
+
+#nav_container {
+  position: relative;
+  top: 340px;
+  height: 80px;
+  z-index: 9999;
+}
+
+#menu_bar {
+  margin-left: 156px;
+}
+
+#menu_bar ul {
+  height: 100%;
+}
+
+#menu_bar a {
+  margin-left: 10px;
+  display: block;
+  float: left;
+  font-size: 20px;
+  color: #0059CC;
+  padding: 5px;
+}
+
+#menu_bar a:hover {
+  color: #003399;
+  font-size: 21px;
+}
+
+nav {
+  height: 40px;
+  background: rgba(255, 255, 255, .8);
+}
+
+
+#nav_container.v-navi-fixed {
+  position: fixed;
+  top: 0px;
+  width: 1000px;
+}
+
+#nav_container #search_bar {
+  background: rgba(22, 22, 22, .4);
+}
+
+#nav_container.v-navi-fixed #search_bar {
+  background: #21B4FF;
+}
+/*menu start*/
+
+
+
+#search_bar {
+  height: 40px;
+  padding: 5px;
+
+}
+
+#search_bar .blog_title {
+  margin-left: 50px;
+  font-size: 21px;
+  color: #fff;
+}
+
+
