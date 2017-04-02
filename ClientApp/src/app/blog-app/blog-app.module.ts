@@ -21,13 +21,14 @@ import { ROUTER_CONFIG } from './blog-app.routes';
 import { CategorysComponent } from './categorys/categorys.component';
 import { Ng2PaginationModule } from 'ng2-pagination';
 
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   imports:      [ 
     CommonModule,
     HttpModule,
     RouterModule.forChild(ROUTER_CONFIG),
-    Ng2PaginationModule
+    Ng2PaginationModule,
+    FormsModule
   ],
   declarations: [  
     BlogAppComponent,

@@ -7,6 +7,7 @@ import { AdminIndexComponent } from './admin-index/admin-index.component';
 import { ROUTER_CONFIG } from './admin-app.routes';
 import { HttpModule } from '@angular/http';
 
+
 @NgModule({
   imports: [
     FormsModule,

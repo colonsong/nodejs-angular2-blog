@@ -1,44 +1,51 @@
 <div id="login">
-    <img width="24" height="24" title="管理者" id="login_img" src="https://waterdrop.tw/images/blog/user-admin.png" onclick="return $('#login_form').show();"
-    />
-    <div class="row" id="login_form">
-        <div class="col-lg-2 pull-right">
-            <form method="post" action="https://waterdrop.tw/blog/login/">
-                <div class="input-group">
-                    <input type="password" class="form-control" name="passwd">
-                    <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit">管理</button>
-                        </span></div>
-                <!-- /input-group -->
-            </form>
+  <img width="24" height="24" title="管理者" id="login_img" src="https://waterdrop.tw/images/blog/user-admin.png" onclick="return $('#login_form').show();"
+  />
+  <div class="row" id="login_form">
+    <div class="col-lg-10 pull-right">
+      <form #f="ngForm" (ngSubmit)="onLogin(f.form)">
+        <div class="input-group">
+          <input ngModel="password" type="password" #password="ngModel" class="form-control" placeholder="密碼" name="passwd" required
+          />
+          <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">登入</button>
+            </span>
         </div>
-        <!-- /.col-lg-6 -->
+        <!-- /input-group -->
+        <div *ngIf="password.errors">
+          <!--  {{ password.errors | json }} -->
+          <div class="alert alert-danger" *ngIf="password.errors.required">密碼必填! </div>
+        </div>
+      </form>
     </div>
+    <!-- /.col-lg-6 -->
+  </div>
+  <!-- /form -->
 </div>
 
 <app-header></app-header>
 <div id="container">
-    <!-- #content start -->
-    <div id="content">
-        <div class="post">
-            <router-outlet></router-outlet>
-        </div>
+  <!-- #content start -->
+  <div id="content">
+    <div class="post">
+      <router-outlet></router-outlet>
     </div>
-    
-    <!-- end #content -->
-    <aside>
-        <div id="css_change">
-            <h2>你喜歡白還黑?</h2>
-            <ul>
-                <li rel="style0" id="style0" class="styleswitch" (click)="styleswitch($event)"></li>
-                <li rel="style1" id="style1" class="styleswitch" (click)="styleswitch($event)"></li>
-            </ul>
-        </div>
-        <app-recent-article></app-recent-article>
-        <app-search-article></app-search-article>
-        <app-categorys></app-categorys>
-    </aside>
-    <!-- end #sidebar -->
-    <div style="clear: both;">&nbsp;</div>
+  </div>
+
+  <!-- end #content -->
+  <aside>
+    <div id="css_change">
+      <h2>你喜歡白還黑?</h2>
+      <ul>
+        <li rel="style0" id="style0" class="styleswitch" (click)="styleswitch($event)"></li>
+        <li rel="style1" id="style1" class="styleswitch" (click)="styleswitch($event)"></li>
+      </ul>
+    </div>
+    <app-recent-article></app-recent-article>
+    <app-search-article></app-search-article>
+    <app-categorys></app-categorys>
+  </aside>
+  <!-- end #sidebar -->
+  <div style="clear: both;">&nbsp;</div>
 </div>
 <app-footer></app-footer>

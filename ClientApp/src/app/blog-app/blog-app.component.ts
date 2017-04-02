@@ -19,6 +19,10 @@ export class BlogAppComponent implements OnInit {
   ngOnInit() {
   }
 
+  onLogin(form) {
+      console.log(form);
+  }
+
   styleswitch(event){
     event.stopPropagation();
     var styleId = event.target.id;
