@@ -7,6 +7,7 @@ import { AdminIndexComponent } from './admin-index/admin-index.component';
 import { ROUTER_CONFIG } from './admin-app.routes';
 import { HttpModule } from '@angular/http';
 import { SimpleTinyComponent } from './simple-tiny/simple-tiny-component';
+import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SimpleTinyComponent } from './simple-tiny/simple-tiny-component';
     CommonModule,
     HttpModule,
     RouterModule.forChild(ROUTER_CONFIG),
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
   declarations: [
     AdminAppComponent,
