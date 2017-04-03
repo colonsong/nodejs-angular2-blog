@@ -6,6 +6,7 @@ import { AdminAppComponent } from './admin-app.component';
 import { AdminIndexComponent } from './admin-index/admin-index.component';
 import { ROUTER_CONFIG } from './admin-app.routes';
 import { HttpModule } from '@angular/http';
+import { SimpleTinyComponent } from './simple-tiny/simple-tiny-component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { HttpModule } from '@angular/http';
   declarations: [
     AdminAppComponent,
     AdminIndexComponent,
+    SimpleTinyComponent,
   ]
 })
 export class AdminAppModule { }
