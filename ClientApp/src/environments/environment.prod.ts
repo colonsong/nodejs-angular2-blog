@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  APIURL : "project.waterdrop.tw",
+  host : "project.waterdrop.tw",
+  corsHost : "https://waterdrop.tw/"
 };

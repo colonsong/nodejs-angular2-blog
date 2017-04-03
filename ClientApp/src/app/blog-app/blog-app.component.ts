@@ -1,26 +1,31 @@
-import { Component, OnInit,Renderer } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { ArticleService } from '../service/article.service';
-
-
+import { LoginService } from '../service/login.service';
 @Component({
   selector: 'app-blog-app',
   templateUrl: './blog-app.component.html',
   styleUrls: ['./blog-app.component.scss']
 })
 export class BlogAppComponent implements OnInit {
-  name = 'Angular';
-  blogNmae = '滴一滴水 With Angular2';
+
+  loginResponse:any;
+  password:string;
 
   constructor(
-    private renderer: Renderer) {
+    private loginService: LoginService) {
     }
 
   ngOnInit() {
   }
 
-  onLogin(form) {
-      console.log(form);
+  onSubmit(form, event:Event) {
+    event.preventDefault();
+    console.log(form.value.password);
+    this.loginService.login(form.value.password).then(response =>  {
+        console.log(response);
+        this.loginResponse = response;
+    });
+    return false;
   }
 
   styleswitch(event){

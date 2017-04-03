@@ -3,14 +3,14 @@ import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Article } from './article.model';
 import { Observable } from 'rxjs';
-import { environment } from './../../environments/environment.prod';
+import { environment } from './../../environments/environment';
 import { ArticlePager } from "app/service/articlePager.model";
 
 
 @Injectable()
 export class CategoryService {
 
-    private articleUrl = 'http://'+ environment.APIURL +':3000/api/categorys/';
+    private articleUrl = 'http://'+ environment.host +':3000/api/categorys/';
 
     constructor(private http: Http) {}
 

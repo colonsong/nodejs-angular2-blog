@@ -7,20 +7,14 @@ import { AppRoutingModule }     from './app-routing.module';
 import { BlogAppModule } from './blog-app/blog-app.module';
 import { AdminAppModule } from './admin-app/admin-app.module';
 import { FormsModule } from '@angular/forms';
-
 import './rxjs-extensions';
-
-
 @NgModule({
   imports:      [ 
-  
     BrowserModule,
     BlogAppModule,
     AdminAppModule,
     AppRoutingModule,
-    FormsModule,
-    
-
+    FormsModule
   ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],

@@ -1,17 +1,13 @@
-import { environment } from './../../environments/environment.prod';
+import { environment } from './../../environments/environment';
 import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
-
 import { Article }           from './article.model';
 
 @Injectable()
 export class ArticleSearchService {
-
-  private articleUrl = 'http://'+ environment.APIURL +':3000/api/searchArticles/';
-
+  private articleUrl = 'http://'+ environment.host +':3000/api/searchArticles/';
   constructor(private http: Http) {}
-
   search(term: string): Observable<Article[]> {
     return this.http
                .get(this.articleUrl + `${term}`)
