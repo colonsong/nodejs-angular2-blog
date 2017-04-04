@@ -1,6 +1,49 @@
-<simple-tiny
-  [elementId]="'my-editor-id'"
-  (onEditorKeyup)="keyupHandlerFunction($event)"
-  >
-</simple-tiny>
-<div [froalaEditor]>Hello, Froala!</div>
+<!--
+    album_name:
+lat:
+lng:
+address:
+opentime:
+phone:
+title:test
+classify:android
+hide:1
+tags:#bb#cc#aa
+elm1:<p>hello</p>
+-->
+<form (ngSubmit)="onSubmit(f.form, $event)" #f="ngForm">
+  <legend>基本資訊</legend>
+  <div class="form-group">
+    <label for="title">標題</label>
+    <input type="text" class="form-control" name="title" id="title" ngModel placeholder="還沒想到標題">
+  </div>
+  <div class="checkbox">
+    <label>
+        <input type="checkbox" name="hide" ng-true-value="1" ng-false-value="0" ngModel> 隱藏
+      </label>
+  </div>
+  <div class="form-group">
+    <label for="category">分類</label>
+    <select class="form-control" name="classify" ngModel="classify">
+        <option
+        *ngFor="let category of categorys"
+        [attr.selected]="category.classify == '日記'?'true':null"
+        [attr.value]="category.classify"
+        >{{category.classify}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="tags">標籤</label>
+    <input type="text" class="form-control" name="tags" id="tags" placeholder="#aa#bb" ngModel>
+  </div>
+  <legend>額外設定</legend>
+  <div class="form-group">
+    <label for="exampleInputPassword1">新增分類</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password" >
+  </div>
+
+  <simple-tiny [elementId]="'my-editor-id'" (onEditorKeyup)="keyupHandlerFunction($event)"></simple-tiny>
+  <legend>----</legend>
+  <div [froalaEditor] [(froalaModel)]="editorContent"></div>
+  <button type="submit" class="btn btn-default" [disabled]="!f.form.valid">送出</button>
+</form>

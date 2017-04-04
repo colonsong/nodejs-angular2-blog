@@ -8,6 +8,7 @@ import { ROUTER_CONFIG } from './admin-app.routes';
 import { HttpModule } from '@angular/http';
 import { SimpleTinyComponent } from './simple-tiny/simple-tiny-component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
+import { ArticleService } from '../service/article.service';
 
 
 @NgModule({
@@ -22,6 +23,9 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     AdminAppComponent,
     AdminIndexComponent,
     SimpleTinyComponent,
-  ]
+  ],
+  providers: [
+    ArticleService,
+  ],
 })
 export class AdminAppModule { }
