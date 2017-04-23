@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 import { SimpleTinyComponent } from './simple-tiny/simple-tiny-component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 import { ArticleService } from '../service/article.service';
+import { FlickrService } from '../service/flickr.service';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ArticleService } from '../service/article.service';
   ],
   providers: [
     ArticleService,
+    FlickrService,
   ],
 })
 export class AdminAppModule { }

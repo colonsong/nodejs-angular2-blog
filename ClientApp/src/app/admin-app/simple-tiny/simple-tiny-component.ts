@@ -6,6 +6,7 @@ import {
   Input,
   Output
 } from '@angular/core';
+import { FlickrService } from '../../service/flickr.service';
 
 declare var tinymce: any;
 @Component({
@@ -15,7 +16,19 @@ declare var tinymce: any;
 export class SimpleTinyComponent implements AfterViewInit, OnDestroy {
   @Input() elementId: String;
   @Output() onEditorKeyup = new EventEmitter<any>();
+  photoSetList:any;
+  constructor(
+    private flickrService: FlickrService,
+  
+  ) { }
 
+  ngOnInit(): void {
+       this.flickrService.photoSetGetList().then(response =>  {
+         console.log(response);
+         this.photoSetList = response;
+       
+        });
+  }
   editor;
 
   ngAfterViewInit() {
