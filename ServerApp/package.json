@@ -21,12 +21,14 @@
     "dotenv": "^4.0.0",
     "expect.js": "^0.3.1",
     "express": "^4.14.1",
+    "forever": "^0.15.3",
     "log4js": "^1.1.0",
     "mocha": "^3.2.0",
     "mocha-mongoose": "^1.2.0",
     "mongodb": "^2.2.24",
     "mongoose": "^4.8.4",
     "mysql": "^2.13.0",
+    "request": "^2.81.0",
     "superagent": "^3.4.4",
     "validator": "^6.2.1"
   }

@@ -8,7 +8,7 @@ var index = require('./routes/index');
 var articles = require('./routes/articles');
 var categorys = require('./routes/categorys');
 var searchArticles = require('./routes/searchArticles');
-
+var flickr = require('./routes/flickr');
 // 加在 router 前面，切記!!
 app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded({ extended: true }) );
@@ -39,5 +39,6 @@ app.use('/', index);
 app.use('/api/articles', articles);
 app.use('/api/categorys', categorys);
 app.use('/api/searchArticles', searchArticles);
+app.use('/api/flickr', flickr);
 
 module.exports = app;
